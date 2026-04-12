@@ -23,7 +23,7 @@ elseif(X86_64)
   include(cmake/arduinofake.cmake)
   target_link_libraries(encoder PUBLIC ArduinoFake)
   # fake definitions to make the code compile
-  target_compile_definitions(encoder PRIVATE
+  target_compile_definitions(encoder PUBLIC
     ARDUINO=100
     __AVR_ATmega328P__
     ARDUINO_UNOR4_WIFI
