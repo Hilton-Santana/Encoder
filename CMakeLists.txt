@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 # Optional variables
 ############################################
 option(AVR_8 "Build for AVR 8-bit architecture" OFF)
+option(SAM_32 "Build for SAM 32-bit architecture" OFF)
 option(X86_64 "Build for x86_64 architecture" ON)
 
 
@@ -17,7 +18,7 @@ target_include_directories(encoder PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-if (AVR_8)
+if (AVR_8 OR SAM_32)
   target_link_libraries(encoder PRIVATE ArduinoCore)
 elseif(X86_64)
   include(cmake/arduinofake.cmake)
